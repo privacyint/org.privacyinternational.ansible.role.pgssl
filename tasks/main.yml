@@ -1,2 +1,13 @@
 ---
-# tasks file for .
+
+- tags:
+    - setup-all
+    - setup-pgssl
+    - install-all
+    - install-pgssl
+  block:
+    - when: privacyint_pgssl_enabled | bool
+      ansible.builtin.include_tasks: "{{ role_path }}/tasks/validate_config.yml"
+
+    - when: privacyint_pgssl_enabled | bool
+      ansible.builtin.include_tasks: "{{ role_path }}/tasks/install.yml"

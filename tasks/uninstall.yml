@@ -1,0 +1,20 @@
+---
+
+- name: Check existence of pgSSL systemd service
+  ansible.builtin.stat:
+    path: "{{ devture_systemd_docker_base_systemd_path }}/{{ privacyint_pgssl_identifier }}.service"
+  register: privacyint_pgssl_service_stat
+
+- when: privacyint_pgssl_service_stat.stat.exists | bool
+  block:
+    - name: Ensure pgSSL systemd service is stopped
+      ansible.builtin.service:
+        name: "{{ privacyint_pgssl_identifier }}"
+        state: stopped
+        enabled: false
+        daemon_reload: true
+
+    - name: Ensure pgSSL systemd service does not exists
+      ansible.builtin.file:
+        path: "{{ devture_systemd_docker_base_systemd_path }}/{{ privacyint_pgssl_identifier }}.service"
+        state: absent
