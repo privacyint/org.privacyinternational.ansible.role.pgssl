@@ -7,7 +7,10 @@ privacyint_pgssl_version: v1.0
 
 privacyint_pgssl_identifier: privacyint-pgssl
 
-privacyint_pgssl_container_image: "{{ privacyint_pgssl_container_image_registry_prefix }}woodpeckerci/woodpecker-agent:{{ privacyint_pgssl_container_image_tag }}"
+privacyint_pgssl_base_path: "/{{ privacyint_pgssl_identifier }}"
+privacyint_pgssl_client_certs_dir_path: "{{ privacyint_pgssl_base_path }}/client-certs"
+
+privacyint_pgssl_container_image: "{{ privacyint_pgssl_container_image_registry_prefix }}privacyint/pgssl:{{ privacyint_pgssl_container_image_tag }}"
 privacyint_pgssl_container_image_tag: "{{ privacyint_pgssl_version }}"
 privacyint_pgssl_container_image_force_pull: "{{ privacyint_pgssl_container_image.endswith(':latest') }}"
 privacyint_pgssl_container_image_registry_prefix: docker.io/
