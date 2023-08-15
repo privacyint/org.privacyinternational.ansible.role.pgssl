@@ -26,7 +26,7 @@ ExecStartPre={{ devture_systemd_docker_base_host_command_docker }} create \
 ExecStartPre={{ devture_systemd_docker_base_host_command_docker }} network connect {{ network }} {{ privacyint_pgssl_identifier }}
 {% endfor %}
 
-ExecStart={{ devture_systemd_docker_base_host_command_docker }} start --attach {{ privacyint_pgssl_identifier }}
+ExecStart={{ devture_systemd_docker_base_host_command_docker }} start --attach {{ privacyint_pgssl_identifier }} -l :{{ privacyint_pgssl_listen_port }} -p {{ privacyint_pgssl_upstream_postgres_address }} -use-client-keypair=no
 
 ExecStop=-{{ devture_systemd_docker_base_host_command_sh }} -c '{{ devture_systemd_docker_base_host_command_docker }} kill {{ privacyint_pgssl_identifier }} 2>/dev/null'
 ExecStop=-{{ devture_systemd_docker_base_host_command_sh }} -c '{{ devture_systemd_docker_base_host_command_docker }} rm {{ privacyint_pgssl_identifier }} 2>/dev/null'
