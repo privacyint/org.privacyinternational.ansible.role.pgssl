@@ -1,7 +1,7 @@
 ---
 # Project source code URL: https://github.com/privacyint/pgssl
 
-privacyint_pgssl_enabled: true
+privacyint_pgssl_enabled: false
 
 privacyint_pgssl_version: v1.0
 
