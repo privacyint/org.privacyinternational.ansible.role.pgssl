@@ -8,7 +8,6 @@ privacyint_pgssl_version: sha256:b9c1e8138901bf473b2ab364c4d8fc1d71add55f04a1674
 privacyint_pgssl_identifier: privacyint-pgssl
 
 privacyint_pgssl_base_path: "/{{ privacyint_pgssl_identifier }}"
-privacyint_pgssl_client_certs_dir_path: "{{ privacyint_pgssl_base_path }}/client-certs"
 
 privacyint_pgssl_container_image: "{{ privacyint_pgssl_container_image_registry_prefix }}/privacyint/org.privacyinternational.docker.pgssl:{{ privacyint_pgssl_container_image_tag }}"
 privacyint_pgssl_container_image_tag: "{{ privacyint_pgssl_version }}"
