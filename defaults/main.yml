@@ -1,2 +1,25 @@
 ---
-# defaults file for .
+# Project source code URL: https://github.com/privacyint/pgssl
+
+privacyint_pgssl_enabled: false
+
+privacyint_pgssl_version: sha256:b9c1e8138901bf473b2ab364c4d8fc1d71add55f04a16742f08986970dcad642
+
+privacyint_pgssl_identifier: privacyint-pgssl
+
+privacyint_pgssl_base_path: "/{{ privacyint_pgssl_identifier }}"
+
+privacyint_pgssl_listen_port: 5432
+
+privacyint_pgssl_container_image: "{{ privacyint_pgssl_container_image_registry_prefix }}/privacyint/org.privacyinternational.docker.pgssl:{{ privacyint_pgssl_container_image_tag }}"
+privacyint_pgssl_container_image_tag: "{{ privacyint_pgssl_version }}"
+privacyint_pgssl_container_image_force_pull: "{{ privacyint_pgssl_container_image.endswith(':dev') }}"
+privacyint_pgssl_container_image_registry_prefix: ghcr.io/
+
+privacyint_pgssl_systemd_required_systemd_services_list: ['docker.service']
+
+privacyint_pgssl_container_network: "{{ privacyint_pgssl_identifier }}"
+
+# A list of additional container networks that the container would be connected to.
+# The playbook does not create these networks, so make sure they already exist.
+privacyint_pgssl_container_additional_networks: []
