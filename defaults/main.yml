@@ -9,6 +9,8 @@ privacyint_pgssl_identifier: privacyint-pgssl
 
 privacyint_pgssl_base_path: "/{{ privacyint_pgssl_identifier }}"
 
+privacyint_pgssl_listen_port: 5432
+
 privacyint_pgssl_container_image: "{{ privacyint_pgssl_container_image_registry_prefix }}/privacyint/org.privacyinternational.docker.pgssl:{{ privacyint_pgssl_container_image_tag }}"
 privacyint_pgssl_container_image_tag: "{{ privacyint_pgssl_version }}"
 privacyint_pgssl_container_image_force_pull: "{{ privacyint_pgssl_container_image.endswith(':dev') }}"
