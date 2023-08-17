@@ -3,7 +3,7 @@
 
 privacyint_pgssl_enabled: false
 
-privacyint_pgssl_version: sha256:b9c1e8138901bf473b2ab364c4d8fc1d71add55f04a16742f08986970dcad642
+privacyint_pgssl_version: main
 
 privacyint_pgssl_identifier: privacyint-pgssl
 
